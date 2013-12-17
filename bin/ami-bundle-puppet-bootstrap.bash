@@ -104,8 +104,7 @@ build() {
         timeout 1200 /usr/local/bin/ami-bundle.bash \
             -r $REGION \
             -b $BUCKETPREFIX \
-            -l $LAYER \
-            -g $GITSHA \
+            -n "$LAYER-$GITSHA" \
             -u $USER \
             -k /tmp/amikey \
             -c /tmp/amicrt \
