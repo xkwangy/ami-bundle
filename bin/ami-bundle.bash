@@ -70,10 +70,9 @@ export TIME='%C ran in %E'
 #
 
 ### Parse arguments
-while getopts ":l:g:r:k:c:b:u:e:i:" opt; do
+while getopts ":n:r:k:c:b:u:e:i:" opt; do
   case $opt in
-    l ) LAYER="$OPTARG" ;;
-    g ) GITSHA="$OPTARG" ;;
+    n ) AMINAME="$OPTARG" ;;
     r ) REGIONS="$OPTARG" ;;
     k ) AMIKEY="$OPTARG" ;;
     c ) AMICRT="$OPTARG" ;;
@@ -87,7 +86,6 @@ while getopts ":l:g:r:k:c:b:u:e:i:" opt; do
   esac
 done
 
-AMINAME="$LAYER-$GITSHA"
 AMIDESC=$(date)
 declare -A KERNELS
 KERNELS=(
@@ -135,7 +133,7 @@ do
       --kernel ${KERNELS[$REGION]}
 
     TARGETBUCKET="$BUCKETPREFIX-$REGION"
-    aws --region=$REGIONS ec2 describe-images --owners "self" |grep $LAYER-$GITSHA
+    aws --region=$REGIONS ec2 describe-images --owners "self" |grep $AMINAME
     if [ $? -eq 0 ]; then
         echo "Image already exists"
         exit 0
