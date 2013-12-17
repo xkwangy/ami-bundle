@@ -12,9 +12,6 @@ REGION=$(wget -q -O - http://169.254.169.254/latest/meta-data/placement/availabi
 mkdir -p /etc/facter/facts.d
 echo "mapbox_layer=$LAYER" > /etc/facter/facts.d/mapbox_layer.txt
 echo "mapbox_environment=$ENVIRONMENT" > /etc/facter/facts.d/mapbox_environment.txt
-echo "mapbox_repository=$REPOSITORY" > /etc/facter/facts.d/mapbox_repository.txt
-echo "mapbox_gitsha=$GITSHA" > /etc/facter/facts.d/mapbox_gitsha.txt
-echo "mapbox_bundle=$BUNDLE" > /etc/facter/facts.d/mapbox_bundle.txt
 
 # If there are less than two AMI ancestors then either the base layer is being
 # bundled, or another layer is being built using the base layer.  Wait for fresh
