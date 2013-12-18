@@ -140,6 +140,7 @@ do
     else
         /usr/bin/time ./ec2-ami-tools/bin/ec2-upload-bundle \
             --batch \
+            --retry \
             -m /tmp/image.manifest.xml \
             -b $TARGETBUCKET/images/$AMINAME \
             -a $KEY \
