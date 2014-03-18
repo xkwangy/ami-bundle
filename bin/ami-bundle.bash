@@ -99,9 +99,9 @@ KERNELS=(
 
 mkdir /tmp/aws
 cd /tmp/aws
-wget http://s3.amazonaws.com/ec2-downloads/ec2-ami-tools.zip
-unzip ec2-ami-tools.zip
-mv ec2-ami-tools-* ec2-ami-tools
+wget http://s3.amazonaws.com/ec2-downloads/ec2-ami-tools-1.4.0.9.zip
+unzip ec2-ami-tools-1.4.0.9.zip
+mv ec2-ami-tools-1.4.0.9 ec2-ami-tools
 
 export EC2_AMITOOL_HOME=/tmp/aws/ec2-ami-tools/
 
